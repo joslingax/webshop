@@ -1,0 +1,38 @@
+doctype html
+html(ng-app)
+  head
+    title= title
+    link(rel='stylesheet', href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+    link(rel='stylesheet', href="stylesheets/style.css")
+    script(src="javascripts/angular.min.js")
+    script(src="javascripts/controller.js")
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="javascripts/viewHome.js")
+  body
+    div(class="container" )
+        div(class="login" style="text-align:right;margin-bottom:3px")
+          a.label.label-success(href='/loginPage') Einloggen
+          a.label.label-default(href='/register') Registrierung
+        nav.navbar.navbar-default
+          div.container-fluid
+            div.navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              a.navbar-brand(href='/home' title="home") GOTAB.COM
+            div.collapse.navbar-collapse
+              form.navbar-form.navbar-left(role='search' method="post" action="/search")
+                div.form-group
+                  input.form-control(type='text', placeholder='Suchen' size ="60%" id="search" name="search")
+                button(class="btn btn-default " type='submit' title="nach einem Tablet im Katalog suchen ") Los
+              ul.nav.navbar-nav.navbar-right
+                li
+                  
+                li
+                  a(href="#")
+                   img(src="images/cart.png")
+                  
+            // /.navbar-collapse
+          // /.container-fluid
+
+         p
+         hr
+         block content
