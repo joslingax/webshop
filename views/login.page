@@ -1,0 +1,18 @@
+extends layout
+block append content
+                   div(class="jumbotron")
+                    h3  Logg dich Ein !
+                    form
+                     div.form-group
+                      input(class="form-control" name ="email" id ="email" placeholder="Email-adresse")
+                      input(class="form-control" name ="password" id ="password" placeholder="Password" type="password")
+
+                     div
+                      p(style="font-size:14px;")
+                       span 
+                        | Haben Sie immer noch kein Konto bei uns ? Dann klicken Sie 
+                        a(href="/register") hier
+                        | !
+                       
+                     div
+                       button(class="btn btn-primary btn-lg" ) Logg dich ein!
