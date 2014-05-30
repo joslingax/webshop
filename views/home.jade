@@ -1,0 +1,60 @@
+extends layout
+block append content
+                    div.btn-group
+                      button.btn.btn-primary(type='button' title="Grid-View" id="buttonGrid") Grid-view
+                      button.btn.btn-default(type='button' title="Liste-View" id="buttonList") List-view
+                    p
+                    <!-- DIE GRID_ANSICHT BEGINNT HIER-->
+                    div(class="row" id="grid"  ng-controller="UserTwoCtrl")
+                      div(class="col-xs-6 col-md-3" ng-repeat="tablet in tablets")
+                        span.label-default.label(style="text-transform: uppercase; ")  {{tablet.hersteller}} 
+                        div(class="thumbnail")
+                         div(class="imageItem")
+                          a(href="/showItemDetails?id={{tablet.id}}")
+                           img(src="{{tablet.urlweb}}")
+                         div(class="titleItem text-center")
+                          h5(style="text-overflow: ellipsis; ")
+                            |{{tablet.name}}
+
+                         div(class="priceItem text-center")
+                          h5
+                           | {{tablet.preis}} 
+                           span(class="label label-default text-left") EUR
+                         div(class="actionItem")
+                          p
+                           a(href="#" class="btn btn-primary")
+                            span  
+                             img(src="images/cart.png" height="25" width="25")
+                            |  In Den Warenkorb
+                          p
+                           a(href="#" class="btn btn-default") Vergleichen
+                          p
+                           a(href="/showItemDetails?id={{tablet.id}}" class="btn btn-default") Details
+                    <!-- DIE GRID_ANSICHT ENDET HIER-->
+
+                    <!-- DIE LISTE_ANSICHT BEGINNT HIER-->
+                    div(id="list"  ng-controller="UserTwoCtrl")
+                      div.row.img-rounded(ng-repeat="tablet in tablets" style="margin-bottom:13px;")
+                          div.col-xs-6.col-md-4.imageItemListe
+                           a(href="/showItemDetails?id={{tablet.id}}")                  
+                            img(src="{{tablet.urlweb}}" width="100%")
+                          div.col-xs-6.col-md-4.infoItemListe
+                             div.title
+                              h3.label.label-success {{tablet.hersteller}} {{tablet.name}}
+                             hr
+                             div.description
+                               span Kleinste, aber coolste Nespresso Maschine • sehr kurze Aufheizzeit (25-30Sek)
+                          div.col-xs-6.col-md-4.actionItemListe
+                              h5
+                               | {{tablet.preis}} 
+                               span(class="label label-default text-left") EUR
+                              p
+                               a(href="#" class="btn btn-primary") In Den Warenkorb
+                              p
+                               a(href="#" class="btn btn-default") Vergleichen
+                              p
+                               a(href="/showItemDetails" class="btn btn-info") Details
+                    <!-- DIE LISTE_ANSICHT ENDET HIER-->
+
+
+     
