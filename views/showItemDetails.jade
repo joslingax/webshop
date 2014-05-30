@@ -1,0 +1,185 @@
+extends layout
+block append content
+            div.row(ng-controller="ShowItemDetailsControl")
+              div.col-md-4.images
+                img(src="{{tablet[0].urlweb}}" width="100%")
+
+              div.col-md-8.details
+                   h3.label.label-success {{tablet[0].name}}
+                   hr
+                   div.row.sub_details
+                       div.col-md-6
+                            div.col-md-5
+                              span.label.label-default {{tablet[0].hersteller}}
+                            div.col-md-7 
+                              p
+                               span.label.label-info Artikel-nr:
+                               span  {{tablet[0].id *791}}
+                              p
+                               span.label.label-info Verfügbar:
+                               span  Ja 
+                       div.col-md-6(style="border:#e5e5e5 solid 1px")
+                            div
+                             h5 Online Preis
+                            h2 {{tablet[0].preis}} EUR
+                            div.priceButton
+                             a.btn.btn-primary(href="/addtobasket")
+                                span
+                                 img(src="images/cart.png", alt="..." ,width="25",heigth="25")
+                                |  In den Warenkorb
+                             p
+                   div.row.sub_details
+                       article#produktmerkmale
+                        h4.label.label-success(style="text-transform:uppercase") TECHNISCHE DATEN :{{tablet[0].hersteller}} {{tablet[0].name}}
+                        hr
+                        table.table.table-striped
+                         thead
+                          tr
+                            th 
+                            th Teschnische Merkmale
+                            th 
+                         tbody
+                          tr
+                            td 
+                            td Typ:
+                            td Tablets
+                          tr
+                            td
+                            td Prozessor
+                            td {{tablet[0].prozessorkernanzahl}}-Core {{tablet[0].prozessorname}} mit {{tablet[0].prozessorfrequenz}} MHz
+                          tr
+                            td 
+                            td Prozessor-Marke
+                            td {{tablet[0].hersteller}}
+                          tr
+                            td
+                            td Arbeitsspeicher:
+                            td {{tablet[0].arbeitspeicher}} MB
+                       table.table.table-striped
+                         thead
+                          tr
+                            th 
+                            th#display DISPLAY
+                            th 
+                         tbody
+                          tr
+                            td 
+                            td Bildschirmdiagonale (Zoll):
+                            td {{tablet[0].displaygroesse * 2.54 }} Zoll
+                          tr
+                            td 
+                            td Bildschirmdiagonale (cm):
+                            td {{tablet[0].displaygroesse * 2.54 }} Zm
+                          tr
+                            td 
+                            td Auflösung:
+                            td {{tablet[0].aufloesungbreite}} x {{tablet[0].aufloesunghoehe}}
+                          tr
+                            td 
+                            td Bildschirmtyp::
+                            td {{tablet[0].displaytech}}-{{tablet[0].touchscreen}}
+                       table.table.table-striped
+                         thead
+                          tr
+                            th 
+                            th#konnektivitaet KONNEKTIVITÄT
+                            th 
+                         tbody
+                          tr
+                            td 
+                            td Bluetooth:
+                            td {{tablet[0].displaygroesse * 2.54 }}
+                          tr
+                            td 
+                            td NFC:
+                            td {{tablet[0].displaygroesse * 2.54 }} 
+                          tr
+                            td 
+                            td 3G :
+                            td {{tablet[0].aaufloesungbreite}} 
+                          tr
+                            td 
+                            td LTE :
+                            td {{tablet[0].displaytech}}
+                          tr
+                            td 
+                            td WLAN :
+                            td {{tablet[0].displaytech}}
+                          tr
+                            td 
+                            td GPS :
+                            td {{tablet[0].displaytech}}
+                          tr
+                            td 
+                            td GSM :
+                            td {{tablet[0].displaytech}}
+                       table.table.table-striped
+                         thead
+                          tr
+                            th 
+                            th SPEICHER
+                            th 
+                         tbody
+                          tr
+                            td 
+                            td Interner Speicher:
+                            td {{tablet[0].internerspeicher }} GO
+                          tr
+                            td 
+                            td Eweiterbarer Speicher:
+                            td 
+
+                       table.table.table-striped
+                         thead
+                          tr
+                            th 
+                            th KONNEKTIVITÄT
+                            th 
+                         tbody
+                          tr
+                            td 
+                            td Bluetooth:
+                            td {{tablet[0].displaygroesse * 2.54 }}
+                          tr
+                            td 
+                            td NFC:
+                            td {{tablet[0].displaygroesse * 2.54 }} 
+                          tr
+                            td 
+                            td 3G :
+                            td {{tablet[0].aaufloesungbreite}} 
+                          tr
+                            td 
+                            td LTE :
+                            td {{tablet[0].displaytech}}
+                          tr
+                            td 
+                            td WLAN :
+                            td {{tablet[0].displaytech}}
+                          tr
+                            td 
+                            td GPS :
+                            td {{tablet[0].displaytech}}
+                          tr
+                            td 
+                            td GSM :
+                            td {{tablet[0].displaytech}}
+                       table.table.table-striped
+                         thead
+                          tr
+                            th 
+                            th#kamera KAMERA
+                            th 
+                         tbody
+                          tr
+                            td 
+                            td Kamera Aufnahmeauflösung :
+                            td {{tablet[0].kamerapixelanzahl}} Mega pixel
+                          tr
+                            td 
+                            td front-Kamera Aufnahmeauflösung :
+                            td {{tablet[0].kamerapixelanzahl_vornekamera }} Mega pixel
+                          tr
+                            td 
+                            td  Kamera videoaufnahmeauflösung:
+                            td {{tablet[0].videoaufloesung}}
