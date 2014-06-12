@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="store">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/sticky-footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="javascripts/controller.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascripts/viewHome.js"></script>
+    <script src="javascripts/addItem2Cart.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="OneDataController as data">
+        <div class="login" style="text-align:right;margin-bottom:3px">
+            <a class="label-success label" href="/loginPage">Einloggen</a>
+            <a class="label-default label" href="/register">Registrierung</a>
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="nav-header">
+                    <button class="navbar-toggle"></button>
+                    <a class="navbar-brand" href="/home" title="home">GOTAB.COM</a>
+                </div>
+                <div class=" collapse navbar-collapse">
+                    <form class="navbar-form navbar-left" role='search' method="post" action="/search">
+                        <div class="form-group">
+                            <input class="form-control" type='text' , placeholder='Suchen' size="60%" id="search" name="search"> </input>
+                        </div>
+                        <button class="btn btn-default " type='submit' title="nach einem Tablet im Katalog suchen ">LOS</button>
+                    </form>
+                    <ul class="navbar-right nav navbar-nav ">
+                        <li>
+                            <a href="">
+                                <img src="http://www.icone-png.com/png/14/13599.png" \>
+                                <span class="badge"> #34</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <p></p>
+        <hr>
+        
+         <div class="row">
+              <div class="col-md-4 images">
+              	<img src="{{data.tablet.urlweb}}" width="100%">
+              </div>
+              <div class="col-md-8 datas">
+              	 <h3 class="label label-success ">{{data.tablet.name}}</h3>
+              	 <hr>
+              	 <div class="row sub_datas">
+              	 	<div class="col-md-6">
+              	 		<div class="col-md-5">
+              	 		<span class="label label-default ">
+                         {{data.tablet.hersteller}}
+              	 		</span>
+              	 		<p></p>
+              	 		<img src="{{data.tablet.herstellerImg}}"  title="{{data.tablet.hersteller + ' logo'}}" width="100%">
+              	 	    </div>
+	              	 	<div class="col-md-7">
+	              	 		<p>
+	              	 			<span class="label label-info">Artikel-nr:</span>
+	              	 			<span >{{data.tablet.id *791}}</span>
+	              	 		</p>
+	              	 		<p>
+	              	 			<span class="label label-info">Verfügbar:</span>
+	              	 			<span> Ja </span>
+	              	 		</p>
+	              	 	</div>
+              	    </div>
+	              	<div style="border:#e5e5e5 solid 1px" class="col-md-6">
+	              	 	<div>
+	              	 		<h5>Online Preis</h5>
+	              	 	</div>
+	              	 	<h2 class="ng-binding"> {{data.tablet.preis}} EUR</h2>
+	              	 	<div class="priceButton">
+	              	 		<a href="/addToCart?id={{data.tablet.id}}" class="btn btn-primary">
+	              	 			<span>
+	              	 				<img src="http://www.icone-png.com/png/14/13599.png" height="25" width="25"> In den Warenkorb
+	              	 			</span>
+	              	 		</a>
+	              	 		<p></p>
+	              	 	</div>
+	              	 </div>
+              	</div>
+                <div class="row sub_datas" style="margin:10px 0px;">
+                	<section ng-controller="TabController as tab" >
+                		<ul class="nav nav-pills">
+
+                          <li ng-class="{active: tab.tab===2}" >
+                          	<a class="btn btn-default " ng-click="tab.tab = 2">Technische Daten</a>
+                          </li>
+                          <li ng-class="{active: tab.tab===1}">
+                          	<a class="btn btn-default" ng-click="tab.tab = 1">Produktsbeschreibung</a>
+                          </li>
+                          <li ng-class="{active: tab.tab===3}">
+                          	<a class="btn btn-default " ng-click="tab.tab = 3">Kommentare</a>
+                          </li>
+                		</ul>
+                	    <div class="panel" style="margin-top:10px;" ng-show="tab.tab === 1">
+                          <h4 class="label label-default">Produktbeschreibung</h4>
+                          <blockquote>
+                            -Keine Beschreibung
+                          </blockquote>
+                        </div>
+                        <div class="panel" ng-show="tab.tab === 2" style="margin-top:10px;">
+                          <h4 class="label label-default">Technische Daten</h4>
+                                <div class="tableSpecial">
+							     <table class="table table-striped ">
+								  <thead>
+								    <tr>
+								      <th> </th>
+								      <th>Prozessor</th>
+								      <th> </th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td></td>
+								      <td>Prozessor</td>
+								      <td>{{data.tablet.prozessorkernanzahl}}-Core {{data.tablet.prozessorname}} mit {{data.tablet.prozessorfrequenz}} MHz</td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>Prozessor-Marke</td>
+								      <td>{{data.tablet.hersteller}}</td>
+								    </tr>
+								    <tr>
+								      <td></td>
+								      <td>Arbeitsspeicher:</td>
+								      <td>{{data.tablet.arbeitspeicher}} MB</td>
+								    </tr>
+								  </tbody>
+								 </table>
+								</div>
+								<div class="tableSpecial">
+								  <table class="table table-striped ">
+								  <thead>
+								    <tr>
+								      <th> </th>
+								      <th id="display">Display</th>
+								      <th> </th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td> </td>
+								      <td>Bildschirmdiagonale (Zoll):</td>
+								      <td>{{data.tablet.displaygroesse * 2.54 }} Zoll</td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>Bildschirmdiagonale (cm):</td>
+								      <td>{{data.tablet.displaygroesse * 2.54 }} Zm</td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>Auflösung:</td>
+								      <td>{{data.tablet.aufloesungbreite}} x {{data.tablet.aufloesunghoehe}}</td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>Bildschirmtyp::</td>
+								      <td>{{data.tablet.displaytech}}-{{data.tablet.touchscreen}}</td>
+								    </tr>
+								  </tbody>
+								  </table>
+								</div>
+								 <div class="tableSpecial">
+								  <table class="table table-striped ">
+								  <thead>
+								    <tr>
+								      <th> </th>
+								      <th id="konnektivitaet">Konnektivität</th>
+								      <th> </th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td> </td>
+								      <td>Bluetooth:</td>
+								      <td ng-switch="data.tablet.bluetooth">
+                                         <span ng-switch-when ="1">
+                                              ja
+                                         </span>
+                                         <span ng-switch-when ="0">
+                                              Nein
+                                         </span>
+								      </td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>NFC:</td>
+								      <td ng-switch="data.tablet.nfc">
+                                         <span ng-switch-when ="1">
+                                              ja
+                                         </span>
+                                         <span ng-switch-when ="0">
+                                              Nein
+                                         </span>
+								      </td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>3G :</td>
+								      <td ng-switch="data.tablet._3g">
+                                         <span ng-switch-when ="1">
+                                              ja
+                                         </span>
+                                         <span ng-switch-when ="0">
+                                              Nein
+                                         </span>
+								      </td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>LTE :</td>
+								      <td ng-switch="data.tablet.lte">
+                                         <span ng-switch-when ="1">
+                                              ja
+                                         </span>
+                                         <span ng-switch-when ="0">
+                                              Nein
+                                         </span>
+								      </td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>WLAN :</td>
+								      <td ng-switch="data.tablet.wifi">
+                                         <span ng-switch-when ="1">
+                                              ja
+                                         </span>
+                                         <span ng-switch-when ="0">
+                                              Nein
+                                         </span>
+								      </td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>GPS :</td>
+								      <td ng-switch="data.tablet.gps">
+                                         <span ng-switch-when ="1">
+                                              ja
+                                         </span>
+                                         <span ng-switch-when ="0">
+                                              Nein
+                                         </span>
+								      </td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>GSM :</td>
+								      <td ng-switch="data.tablet.gsm">
+                                         <span ng-switch-when ="1">
+                                              ja
+                                         </span>
+                                         <span ng-switch-when ="0">
+                                              Nein
+                                         </span>
+								      </td>
+								    </tr>
+								  </tbody>
+								  </table>
+								</div>
+								 <div class="tableSpecial">
+								  <table class="table table-striped ">
+								  <thead>
+								    <tr>
+								      <th> </th>
+								      <th>Speicher</th>
+								      <th> </th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td> </td>
+								      <td>Interner Speicher:</td>
+								      <td>{{data.tablet.internerspeicher }} GO</td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>Eweiterbarer Speicher:</td>
+								      <td> {{data.erweiterbar}}</td>
+								    </tr>
+								  </tbody>
+								  </table>
+								</div>
+							    <div class="tableSpecial">
+								  <table class="table table-striped ">
+								  <thead>
+								    <tr>
+								      <th> </th>
+								      <th id="kamera">Kamera</th>
+								      <th> </th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr>
+								      <td> </td>
+								      <td>Aufnahmeauflösung :</td>
+								      <td>{{data.tablet.kamerapixelanzahl}} Mega pixel</td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>front-Kamera Aufnahmeauflösung :</td>
+								      <td>{{data.tablet.kamerapixelanzahl_vornekamera }} Mega pixel</td>
+								    </tr>
+								    <tr>
+								      <td> </td>
+								      <td>  videoaufnahmeauflösung:</td>
+								      <td>{{data.tablet.videoaufloesung}}</td>
+								    </tr>
+								  </tbody>
+								  </table>
+								</div>
+                         </div>
+                          <div class="panel" ng-show="tab.tab === 3" style="margin-top:10px;">
+                          <h4 class="label label-default">Kommentare</h4>
+                          <blockquote>
+                             Keine Kommentare!
+                          </blockquote>
+                        </div>
+                        </section>
+                        </div>
+              	</div>
+              </div>
+         </div>
+    </div>
+    <div id="footer">
+       <div class="container">
+        <p class="text-muted">GOTAB.COM</p>
+       </div>
+    </div>
+</body>
+</html>
