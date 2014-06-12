@@ -1,0 +1,60 @@
+<!doctyte html>
+<html ng-app="store">
+  <head>
+  	<title>Home</title>
+  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="stylesheets/style.css">
+  	<link rel="stylesheet" href="stylesheets/sticky-footer.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  	<script src="javascripts/controller.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="javascripts/viewHome.js"></script>
+  	<script src="javascripts/addItem2Cart.js"></script>
+  </head>
+  <body>
+         <div class="container" ng-controller="DataController as data">
+         	<!-- HEADER START -->
+               <div class="login" style="text-align:right;margin-bottom:3px">
+                  <a class="label-success label" href="/loginPage">Einloggen</a>
+                  <a class="label-default label" href="/register">Registrierung</a>
+               </div>
+               <nav class="navbar navbar-default">
+               	   <div class="container-fluid">
+               	   	 <div class="nav-header">
+                       <button class="navbar-toggle"></button>
+                       <a class="navbar-brand" href="/home" title="home">GOTAB.COM</a>
+               	   	 </div>
+               	   	 <div class=" collapse navbar-collapse">
+               	   	 	<form class="navbar-form navbar-left" role='search' method="post" action="/search">
+                             <div class="form-group">
+                                <input class="form-control" type='text', placeholder='Suchen' size ="60%" id="search" name="search" > </input>
+                             </div>
+                             <button class="btn btn-default " type='submit' title="nach einem Tablet im Katalog suchen ">LOS</button>
+               	   	 	</form>
+               	   	 	<ul class="navbar-right nav navbar-nav ">
+                             <li>
+                              <a href="">
+                               <img src="http://www.icone-png.com/png/14/13599.png"\>
+                                <span class="badge"> #34</span>
+                              </a>
+                             </li>
+               	   	 	</ul>
+               	   	</div>
+               	   </div>
+              </nav>
+              <p></p>
+              <hr>
+            <!-- HEADER END -->
+              div<class="jumbotron")>
+                      <h3 class="label-success"></h3>
+                      <span>Nachricht -> #{query}</span> 
+                      <h3>3 Die Suchseite ist  momentan noch nicht implementiert.Wir bittem um Verständnis.</h3>
+                       <a>(class ="btn btn-primary" href="/home") Auf die HomeSeite landen</a>
+         </div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">GOTAB.COM</p>
+  </div>
+</div>
+  </body>
