@@ -1,0 +1,79 @@
+
+.container
+{
+ max-width:970px;
+}
+
+.titleItem,.priceItem
+{
+    text-align:center;
+    padding:0;
+}
+
+.actionItem
+{
+    margin:4px 0px;
+   
+}
+.actionItem p
+{
+    display:inline;
+}
+
+.actionItem a
+{
+    margin-bottom:3px;
+    width:100%;
+}
+#list .row
+{
+    border:#cecece solid 1px;
+    padding:5px;
+
+-webkit-box-shadow: -8px -3px 31px -3px rgba(135,135,135,0.1);
+-moz-box-shadow: -8px -3px 31px -3px rgba(135,135,135,0.1);
+box-shadow: -8px -3px 31px -3px rgba(135,135,135,0.1);
+}
+.actionItemListe p a
+{
+    width:100%;
+}
+input
+{
+    margin-left:5px;
+    margin-right:15px;
+    margin-bottom:5px;
+}
+
+.login a
+{
+    margin-right:5px;
+}
+.imageItem
+{
+    width:204px;
+    height:184px;
+}
+.imageItemListe
+{
+    width:204px;
+    height:184px;
+}
+.ng-valid.ng-dirty
+{
+    border-color:green;
+}
+.ng-invalid.ng-dirty
+{
+    border-color:red;
+}
+.tableSpecial
+{
+  
+    padding:10px;
+    border:1px solid #ececec;
+    margin:15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
