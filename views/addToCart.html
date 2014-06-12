@@ -1,0 +1,74 @@
+<!doctyte html>
+<html ng-app="store">
+  <head>
+  	<title>Home</title>
+  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="stylesheets/style.css">
+  	<link rel="stylesheet" href="stylesheets/sticky-footer.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  	<script src="javascripts/controller.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="javascripts/viewHome.js"></script>
+  	<script src="javascripts/addItem2Cart.js"></script>
+  </head>
+  <body>
+      <!-- CONTAINER START -->
+         <div class="container" ng-controller="DataController as data">
+         	<!-- HEADER START -->
+               <div class="login" style="text-align:right;margin-bottom:3px">
+                  <a class="label-success label" href="/loginPage">Einloggen</a>
+                  <a class="label-default label" href="/register">Registrierung</a>
+               </div>
+               <nav class="navbar navbar-default">
+               	   <div class="container-fluid">
+               	   	 <div class="nav-header">
+                       <button class="navbar-toggle"></button>
+                       <a class="navbar-brand" href="/home" title="home">GOTAB.COM</a>
+               	   	 </div>
+               	   	 <div class=" collapse navbar-collapse">
+               	   	 	<form class="navbar-form navbar-left" role='search' method="post" action="/search">
+                             <div class="form-group">
+                                <input class="form-control" type='text', placeholder='Suchen' size ="60%" id="search" name="search" > </input>
+                             </div>
+                             <button class="btn btn-default " type='submit' title="nach einem Tablet im Katalog suchen ">LOS</button>
+               	   	 	</form>
+               	   	 	<ul class="navbar-right nav navbar-nav ">
+                             <li>
+                              <a href="">
+                               <img src="http://www.icone-png.com/png/14/13599.png"\>
+                                <span class="badge"> #34</span>
+                              </a>
+                             </li>
+               	   	 	</ul>
+               	   	</div>
+               	   </div>
+              </nav>
+              <p></p>
+              <hr>
+            <!-- HEADER END -->
+            <!-- CONTENT.START -->
+           
+            <div class="jumbotron" ng-controller="OneDataInCartController as cartController" style="max-width:700px;margin: 0 auto;border:1px solid #ececec;background-color:white">
+              <h5><span class="label label-default">Nachricht:</span>   Sie haben ein {{cartController.tablet.name}} in den Warenkorb angelegt</h5>
+              <div class="row" style="text-align:center">
+                <div class="col-md-6">
+                  <div><img src="{{cartController.tablet.urlweb}}" style="width:100%"/></div>
+                </div>
+                <div class="col-md-6">
+                  <p><a class ="btn btn-primary" href="/home" style="margin:5px 10px" onclick="history.back()"> weiter einkaufen</a></p>
+                  <p><a class ="btn btn-info" href="/home" style="margin:5px 10px" > zum warenkorb</a></p>
+                  <p><a class ="btn btn-default" href="/home" style="margin:5px 10px" onclick="history.back()"> zur Home seite</a></p>
+                </div>
+              </div>
+            </div>
+            <!-- CONTENT END -->
+         </div>
+         <!-- CONTAINER END -->
+<!-- FOOTER START -->
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">GOTAB.COM</p>
+  </div>
+</div>
+<!-- FOOTER END -->
+  </body>
