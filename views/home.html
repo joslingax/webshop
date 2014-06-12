@@ -1,0 +1,192 @@
+<!doctyte html>
+<html ng-app="store">
+  <head>
+  	<title>Home</title>
+  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="stylesheets/style.css">
+  	<link rel="stylesheet" href="stylesheets/sticky-footer.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  	<script src="javascripts/controller.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="javascripts/viewHome.js"></script>
+  	<script src="javascripts/addItem2Cart.js"></script>
+	
+  </head>
+  <body>
+
+         <div class="container" ng-controller="DataController as data">
+               <div class="login" style="text-align:right;margin-bottom:3px">
+                  <a class="label-success label" href="/loginPage">Einloggen</a>
+                  <a class="label-default label" href="/register">Registrierung</a>
+               </div>
+               <nav class="navbar navbar-default">
+               	   <div class="container-fluid">
+               	   	 <div class="nav-header">
+                       <button class="navbar-toggle"></button>
+                       <a class="navbar-brand" href="/home" title="home">GOTAB.COM</a>
+               	   	 </div>
+               	   	 <div class=" collapse navbar-collapse">
+               	   	 	<form class="navbar-form navbar-left" role='search' method="post" action="/search">
+                             <div class="form-group">
+                                <input class="form-control" type='text', placeholder='Suchen' size ="60%" id="search" name="search" > </input>
+                             </div>
+                             <button class="btn btn-default " type='submit' title="nach einem Tablet im Katalog suchen ">LOS</button>
+               	   	 	</form>
+               	   	 	<ul class="navbar-right nav navbar-nav ">
+                             <li>
+                              <a href="">
+                               <img src="http://www.icone-png.com/png/14/13599.png"\>
+                                <span class="badge"> #34</span>
+                              </a>
+                             </li>
+               	   	 	</ul>
+               	   	</div>
+               	   </div>
+              </nav>
+              <p></p>
+              <hr>
+                <!-- SHOW OFF OUR FORMDATA OBJECT -->
+    <h2>Sample Form Object</h2>
+    <pre>
+        {{ filter }}-
+        {{query}}
+    </pre>
+              <div class="btn-group">
+                <button id="buttonGrid" class="btn btn-primary">Grid-view</button>
+                <button  id="buttonList" class="btn btn-default">List-view</button>
+                <button  id="buttonFilter" class="btn btn-default">Filterung</button>
+              </div>
+              <p></p>
+			  	<div   class="img-rounded row" style="border:solid 1px #ececec;margin-bottom:10px;" >
+					<div class="col-xs-6 col-md-4">
+                      <form class="form-inline " role="form">
+					  <div class="form-group pull-right" style="margin-right:10px; bottom:0;"  >
+					    <label class="" >Sortieren nach:</label>
+					    <select class="form-control" >
+						  <option>Beliebheit</option>
+						  <option>Preis absteigen</option>
+						  <option>Preis aufsteigen</option>
+						  <option>dem Alphabet [A-Z] </option>
+						  <option>dem Alphabet [Z-A]</option>
+						</select>
+					  </div>
+					</form>
+					</div>
+				</div>
+			    <div id="filter" style="margin-left:10px; position:absolute;left:0;border:solid 1px #ececec; padding:10px;">
+
+			    	<h5>Hersteller</h5>
+			    	<div class="checkbox">
+					      <label >
+					        <input type="checkbox" ng-model="filter.hersteller.acer"  ng-change="data.herstellerFilter('acer',filter.hersteller.acer)">acer
+					        <br/>
+					      </label> 
+					      					      <label >
+					        <input type="checkbox" ng-model="filter.hersteller.asus"  ng-change="data.herstellerFilter('asus',filter.hersteller.asus)">asus
+					        <br/>
+					      </label> 
+					      					      <label >
+					        <input type="checkbox" ng-model="filter.hersteller.apple"  ng-change="data.herstellerFilter('apple',filter.hersteller.apple)">apple
+					        <br/>
+					      </label> 
+					      					      <label >
+					        <input type="checkbox" ng-model="filter.hersteller.samsung"  ng-change="data.herstellerFilter('samsung',filter.hersteller.samsung)">samsung
+					        <br/>
+					      </label> 
+					      					      <label >
+					        <input type="checkbox" ng-model="filter.hersteller.sony"  ng-change="data.herstellerFilter('sony',filter.hersteller.sony)">sony
+					        <br/>
+					      </label> 
+					   </div>
+					<h5>OS</h5>
+			    	<div class="checkbox">
+					      <label>
+					        <input type="checkbox"  name="os" ng-model="filter.os.android" ng-change="data.osFilter('android',filter.os.android)">Android
+					        <br/>
+					      </label> 
+					      <label>
+					        <input type="checkbox"  name="os" ng-model="filter.os.ios" ng-change="data.osFilter('ios',filter.os.ios)">Ios
+					        <br/>
+					      </label> 
+					       <label>
+					        <input type="checkbox"  name="os" ng-model="filter.os.windows" ng-change="data.osFilter('windows 8',filter.os.windows)">Windows 8
+					        <br/>
+					      </label> 
+					   </div>
+
+                <button class="btn btn-primary " ng-click="data.filter()">Filter</button>
+			    </div>
+			    
+			  <div class="row"  id="grid">
+
+			    <div class="col-xs-6 col-md-3" ng-repeat="tablet in data.tablets">
+			    	<span style="text-transform: uppercase; " class="label-default label">{{tablet.hersteller}} </span>
+				     <div class="thumbnail">
+				        <div class="imageItem">
+				        	<a href="/showItemDetails?id={{tablet.id}}"><img src="{{tablet.urlweb}}"></a>
+				        </div>
+				        <div class="titleItem text-center">
+				         <h5 style="text-overflow: ellipsis; ">
+
+				         </h5>
+				        </div>
+				        <div class="priceItem text-center">
+	                       <h5>{{tablet.preis}} 
+	                       	 <span class="label label-default text-left">EUR  </span>
+	                       </h5>
+	                    </div>
+						<div class="actionItem">
+			              <p>
+			              	<a href="/addToCart?id={{tablet.id}}" class="btn btn-primary">
+			              	<span> <img src="http://www.icone-png.com/png/14/13599.png" height="25" width="25">In Den Warenkorb</span>
+			               </a>
+			              </p>
+						  <p><a href="#" class="btn btn-default">Vergleichen</a></p>
+						  <p><a href="/showItemDetails?id={{tablet.id}}" class="btn btn-default">Details   </a></p>
+						</div>
+				  </div>
+			  </div>
+			</div>
+            <div id="list">
+				  <div style="margin-bottom:13px;" class="row img-rounded" ng-repeat="tablet in data.tablets" style="margin-bottom:5px;padding:5px;">
+				    <div class="col-xs-6 col-md-4 imageItemListe">
+				      <a href="/showItemDetails?id={{tablet.id}}">               
+				        <img src="{{tablet.urlweb}}" width="100%">
+				      </a>
+				   </div>
+				    <div class="col-xs-6 col-md-4 infoItemListe" style="padding:20px;">
+				      <div class="title">
+				        <h3 class="label label-success">{{tablet.hersteller}} {{tablet.name}}</h3>
+				      </div>
+				      <hr>
+				      <div class="description">
+				      	<span>Kleinste, aber coolste Nespresso Maschine • sehr kurze Aufheizzeit</span>
+				      </div>
+				    </div>
+				    <div class="col-xs-6 col-md-4 actionItemListe" style="padding-top:20px;">
+
+						<p>
+					      <a href="/addToCart?id={{tablet.id}}" class="btn btn-primary">
+							 <span>
+							  <img src="http://www.icone-png.com/png/14/13599.png"/>In Den Warenkorb
+							 </span>
+						  </a>
+					   </p>
+						<p>
+							<a href="#" class="btn btn-default">Vergleichen</a>
+						</p>
+						<p>
+							<a href="/showItemDetails" class="btn btn-info">Details</a>
+						</p>   
+				    </div>
+				  </div>
+				</div>
+
+     </div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">GOTAB.COM</p>
+  </div>
+</div>
+  </body>
