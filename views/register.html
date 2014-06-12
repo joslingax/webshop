@@ -1,0 +1,102 @@
+<!doctyte html>
+<html ng-app="store">
+  <head>
+  	<title>Home</title>
+  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="stylesheets/style.css">
+  	<link rel="stylesheet" href="stylesheets/sticky-footer.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  	<script src="javascripts/controller.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="javascripts/viewHome.js"></script>
+  	<script src="javascripts/addItem2Cart.js"></script>
+  </head>
+  <body>
+      <!-- CONTAINER START -->
+         <div class="container" ng-controller="DataController as data">
+         	<!-- HEADER START -->
+               <div class="login" style="text-align:right;margin-bottom:3px">
+                  <a class="label-success label" href="/loginPage">Einloggen</a>
+                  <a class="label-default label" href="/register">Registrierung</a>
+               </div>
+               <nav class="navbar navbar-default">
+               	   <div class="container-fluid">
+               	   	 <div class="nav-header">
+                       <button class="navbar-toggle"></button>
+                       <a class="navbar-brand" href="/home" title="home">GOTAB.COM</a>
+               	   	 </div>
+               	   	 <div class=" collapse navbar-collapse">
+               	   	 	<form class="navbar-form navbar-left" role='search' method="post" action="/search">
+                             <div class="form-group">
+                                <input class="form-control" type='text', placeholder='Suchen' size ="60%" id="search" name="search" > </input>
+                             </div>
+                             <button class="btn btn-default " type='submit' title="nach einem Tablet im Katalog suchen ">LOS</button>
+               	   	 	</form>
+               	   	 	<ul class="navbar-right nav navbar-nav ">
+                             <li>
+                              <a href="">
+                               <img src="http://www.icone-png.com/png/14/13599.png"\>
+                                <span class="badge"> #34</span>
+                              </a>
+                             </li>
+               	   	 	</ul>
+               	   	</div>
+               	   </div>
+              </nav>
+              <p></p>
+              <hr>
+            <!-- HEADER END -->
+            <!-- CONTENT.START -->
+            <div class="jumbotron">
+              <h3>Registrierung</h3>
+              <!-- WENN DIE REGISTRIERUNG NICHT ERFOLGREICH WAR,D.H SIE WARVFEHLERHAFT;DESWEGEN WERDEN DIESE FEHLER ANGEZEIGT-->
+                 <form method="post" action="/registerUser" class="ng-pristine ng-valid">
+                  <!-- WENN DIE REGISTRIERUNG GANZ NEU IST ,BILDEN WIR DAS ENTSPRECHENDE LAYOUT DES FORMULAR AB -->
+                   <div class="form-group form-inline">
+                    <input name="firstname" id="firstname" placeholder="Vorname" class="form-control">
+                    <input name="lastname" id="lastname" placeholder="Nachname" class="form-control">
+                  </div>
+                  <div class="form-group"><input name="email" id="email" placeholder="Email-adresse" class="form-control">
+                    <input name="password" id="password" placeholder="Password" type="password" class="form-control">
+                    <input name="password2" id="password2" placeholder="Password Wiederholen" type="password" class="form-control">
+                  </div>
+                  <div class="form-group form-inline">
+                    <label>Adresse</label>
+                    <div>
+                      <input name="street" id="street" placeholder="Strasse" class="form-control">
+                      <input name="nr" id="nr" placeholder="Nummer" class="form-control">
+                      <input name="plz" id="plz" placeholder="Postleitzahl" class="form-control">
+                      <input name="city" id="city" placeholder="Stadt" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="radio">
+                      <input type="radio" name="group1" value="Mann" checked="">Mann
+                    </div>
+                    <div class="radio">
+                      <input type="radio" name="group1" value="Frau">Frau
+                    </div>
+                  </div>
+                  <div>
+                    <p style="font-size:14px;">
+                      <span>Durch Fortfahren akzeptiere ich die GOTAB.COM AGB</span>
+                    </p>
+                  </div>
+                  <div>
+                    <button class="btn btn-primary btn-lg">Ihr Konto einrichten</button>
+                  </div>
+                  <p>
+                  </p>
+                </form>
+              </div>
+              <!-- CONTENT END -->
+         </div>
+         <!-- CONTAINER END -->
+<!-- FOOTER START -->
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">GOTAB.COM</p>
+  </div>
+</div>
+<!-- FOOTER END -->
+  </body>
