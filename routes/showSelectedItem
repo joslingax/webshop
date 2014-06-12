@@ -1,0 +1,35 @@
+var db = require ('./../core/datenbank');
+//////////////////////////////////////////////////////////////////
+//ROUTE FÜR DIE SHOWITEMDETAILS-SEITE-START
+//////////////////////////////////////////////////////////////////
+var dataFromshowItemDetailsId = null;
+exports.showItemDetails = function(req, res)
+{
+    var id =req.query.id;
+    var queryRequest = "SELECT * FROM  tablet WHERE id = "+id;
+    db.open();
+    db.CONNECTION.query(queryRequest,function(err,rows,fields)
+    {
+      if(err)//wenn etwas mit der Abfrage nicht stimmt,dann geben wir ein fehler meldung aus
+
+            {
+             console.log('Fehler:'+err);
+             return;
+            }//sonst,ist die Abfrage erfolreich.dann werden die Ergebnisse der Abfrage in Json zurückgegeben,
+             //damit ANGULAR.JS sie verarbeiten kann
+             dataFromshowItemDetailsId=rows[0];
+ 
+        
+    });
+  db.close();
+    res.sendfile('./views/showItemDetails.html'); //zeig das View an
+  //res.render('showItemDetails'); //zeig das View an
+
+};
+exports.showItemDetailsData = function(req, res)
+{
+    res.json(dataFromshowItemDetailsId);
+};
+///////////////////////////////////////////////////////////////////
+//ROUTE FÜR DIE SHOWITEMDETAILS-SEITE-END
+//////////////////////////////////////////////////////////////////
